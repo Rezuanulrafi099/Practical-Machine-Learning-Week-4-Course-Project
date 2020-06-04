@@ -1,0 +1,35 @@
+#library(e1071)
+library(caret)
+## Loading required package: lattice
+## Loading required package: ggplot2
+library(rpart)
+library(rpart.plot)
+library(RColorBrewer)
+library(rattle)
+## Rattle: A free graphical interface for data science with R.
+## Version 5.1.0 Copyright (c) 2006-2017 Togaware Pty Ltd.
+## Type 'rattle()' to shake, rattle, and roll your data.
+library(randomForest)
+## randomForest 4.6-12
+## Type rfNews() to see new features/changes/bug fixes.
+## 
+## Attaching package: 'randomForest'
+## The following object is masked from 'package:rattle':
+## 
+##     importance
+## The following object is masked from 'package:ggplot2':
+## 
+##     margin
+library(corrplot)
+## corrplot 0.84 loaded
+library(gbm)
+## Loading required package: survival
+## 
+## Attaching package: 'survival'
+## The following object is masked from 'package:caret':
+## 
+##     cluster
+## Loading required package: splines
+## Loading required package: parallel
+## Loaded gbm 2.1.3
+

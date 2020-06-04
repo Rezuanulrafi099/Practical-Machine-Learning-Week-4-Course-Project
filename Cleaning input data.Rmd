@@ -1,0 +1,14 @@
+trainData<- train_in[, colSums(is.na(train_in)) == 0]
+validData <- valid_in[, colSums(is.na(valid_in)) == 0]
+dim(trainData)
+## [1] 19622    93
+dim(validData)
+## [1] 20 60
+
+
+trainData <- trainData[, -c(1:7)]
+validData <- validData[, -c(1:7)]
+dim(trainData)
+## [1] 19622    86
+dim(validData)
+## [1] 20 53

@@ -1,0 +1,29 @@
+NZV <- nearZeroVar(trainData)
+trainData <- trainData[, -NZV]
+testData  <- testData[, -NZV]
+dim(trainData)
+## [1] 13737    53
+dim(testData)
+## [1] 4124   53
+
+After this cleaning we are down now to 53 variables
+
+The following correlation plot uses the following parameters (source:CRAN Package ‘corrplot’) “FPC”: the first principal component order. “AOE”: the angular order tl.cex Numeric, for the size of text label (variable names) tl.col The color of text label
+
+cor_mat <- cor(trainData[, -53])
+corrplot(cor_mat, order = "FPC", method = "color", type = "upper", 
+         tl.cex = 0.8, tl.col = rgb(0, 0, 0))
+
+
+highlyCorrelated = findCorrelation(cor_mat, cutoff=0.75)
+
+We then obtain the names of highly correlated attributes
+
+names(trainData)[highlyCorrelated]
+##  [1] "accel_belt_z"      "roll_belt"         "accel_belt_y"     
+##  [4] "total_accel_belt"  "accel_dumbbell_z"  "accel_belt_x"     
+##  [7] "pitch_belt"        "magnet_dumbbell_x" "accel_dumbbell_y" 
+## [10] "magnet_dumbbell_y" "accel_arm_x"       "accel_dumbbell_x" 
+## [13] "accel_arm_z"       "magnet_arm_y"      "magnet_belt_z"    
+## [16] "accel_forearm_y"   "gyros_forearm_y"   "gyros_dumbbell_x" 
+## [19] "gyros_dumbbell_z"  "gyros_arm_x"

@@ -1,0 +1,7 @@
+train_in <- read.csv('./pml-training.csv', header=T)
+valid_in <- read.csv('./pml-testing.csv', header=T)
+dim(train_in)
+## [1] 19622   160
+
+dim(valid_in)
+## [1]  20 160

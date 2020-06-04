@@ -1,0 +1,39 @@
+set.seed(12345)
+controlGBM <- trainControl(method = "repeatedcv", number = 5, repeats = 1)
+modGBM  <- train(classe ~ ., data=trainData, method = "gbm", trControl = controlGBM, verbose = FALSE)
+modGBM$finalModel
+## A gradient boosted model with multinomial loss function.
+## 150 iterations were performed.
+## There were 52 predictors of which 42 had non-zero influence.
+# print model summary
+print(modGBM)
+## Stochastic Gradient Boosting 
+## 
+## 13737 samples
+##    52 predictor
+##     5 classes: 'A', 'B', 'C', 'D', 'E' 
+## 
+## No pre-processing
+## Resampling: Cross-Validated (5 fold, repeated 1 times) 
+## Summary of sample sizes: 10990, 10991, 10989, 10990, 10988 
+## Resampling results across tuning parameters:
+## 
+##   interaction.depth  n.trees  Accuracy   Kappa    
+##   1                   50      0.7510370  0.6845815
+##   1                  100      0.8171350  0.7686429
+##   1                  150      0.8533135  0.8144335
+##   2                   50      0.8520032  0.8125199
+##   2                  100      0.9071828  0.8825490
+##   2                  150      0.9318612  0.9137796
+##   3                   50      0.8950994  0.8671743
+##   3                  100      0.9414709  0.9259338
+##   3                  150      0.9609802  0.9506365
+## 
+## Tuning parameter 'shrinkage' was held constant at a value of 0.1
+## 
+## Tuning parameter 'n.minobsinnode' was held constant at a value of 10
+## Accuracy was used to select the optimal model using the largest value.
+## The final values used for the model were n.trees = 150,
+##  interaction.depth = 3, shrinkage = 0.1 and n.minobsinnode = 10.
+
+
